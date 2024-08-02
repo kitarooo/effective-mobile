@@ -1,4 +1,4 @@
-package backend.microservices.testproject.security.jwt;
+package com.backend.effectivemobile.security.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

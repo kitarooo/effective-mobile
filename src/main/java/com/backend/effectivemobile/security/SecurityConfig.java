@@ -1,6 +1,6 @@
-package backend.microservices.testproject.security;
+package com.backend.effectivemobile.security;
 
-import backend.microservices.testproject.security.jwt.JwtAuthenticationFilter;
+import com.backend.effectivemobile.security.jwt.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

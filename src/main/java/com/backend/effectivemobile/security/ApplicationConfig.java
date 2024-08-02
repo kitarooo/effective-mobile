@@ -1,6 +1,6 @@
-package backend.microservices.testproject.security;
+package com.backend.effectivemobile.security;
 
-import backend.microservices.testproject.repository.UserRepository;
+import com.backend.effectivemobile.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,7 +36,7 @@ public class ApplicationConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return username -> (UserDetails) userRepository.findUserByUsername(username)
+        return email -> (UserDetails) userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found!"));
     }
 }
