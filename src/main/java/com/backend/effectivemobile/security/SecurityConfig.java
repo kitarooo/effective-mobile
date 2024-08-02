@@ -26,14 +26,8 @@ public class SecurityConfig extends WebSecurityConfiguration {
             "/swagger-ui/**",
             "/backend/swagger-ui.html",
             "/documentation/**",
-            "/v3/api-docs/**"
-    };
-
-    public String[] ADMIN = {
-            "/api/v1/news/createNews",
-            "/api/v1/products/add",
-            "/api/v1/orders/all",
-            "/api/v1/order/{id}"
+            "/v3/api-docs/**",
+            "/api/v1/auth/**"
     };
 
     @Bean
@@ -41,7 +35,6 @@ public class SecurityConfig extends WebSecurityConfiguration {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(ADMIN).hasRole("ADMIN")
                         .requestMatchers(PERMIT_ALL).permitAll().anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authProvider)

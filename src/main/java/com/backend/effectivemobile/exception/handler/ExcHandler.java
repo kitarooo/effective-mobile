@@ -1,7 +1,6 @@
 package com.backend.effectivemobile.exception.handler;
 
 import com.backend.effectivemobile.exception.IncorrectDataException;
-import com.backend.effectivemobile.exception.IncorrectPasswordsException;
 import com.backend.effectivemobile.exception.NotFoundException;
 import com.backend.effectivemobile.exception.UserAlreadyExistException;
 import org.springframework.http.HttpStatus;
@@ -27,12 +26,6 @@ public class ExcHandler {
     @ExceptionHandler(IncorrectDataException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ExceptionResponse incorrectDataException(IncorrectDataException e) {
-        return new ExceptionResponse(HttpStatus.BAD_REQUEST, e.getClass().getName(), e.getMessage());
-    }
-
-    @ExceptionHandler(IncorrectPasswordsException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ExceptionResponse incorrectPasswordsException(IncorrectPasswordsException e) {
         return new ExceptionResponse(HttpStatus.BAD_REQUEST, e.getClass().getName(), e.getMessage());
     }
 }

@@ -14,7 +14,7 @@ import lombok.experimental.FieldDefaults;
 @Setter
 @Builder
 @Entity
-@Table(name = "users")
+@Table(name = "tasks")
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
