@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,9 +29,11 @@ public class User extends BaseEntity implements UserDetails {
     String password;
     String phoneNumber;
 
-
     @Enumerated(EnumType.STRING)
     Role role;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.REFRESH, CascadeType.MERGE})
+    List<Task> tasks;
 
     @Override
     @JsonIgnore
@@ -39,21 +42,25 @@ public class User extends BaseEntity implements UserDetails {
     }
 
     @Override
+    @JsonIgnore
     public boolean isAccountNonExpired() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public boolean isAccountNonLocked() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public boolean isCredentialsNonExpired() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public boolean isEnabled() {
         return true;
     }

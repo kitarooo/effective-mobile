@@ -21,10 +21,12 @@ import lombok.experimental.FieldDefaults;
 public class Task extends BaseEntity {
     String title;
     String description;
+    String performerUsername;
+
     @Enumerated(EnumType.STRING)
     Status status;
+
     @Enumerated(EnumType.STRING)
     Priority priority;
-    String author;
-    String performer;
+
 }

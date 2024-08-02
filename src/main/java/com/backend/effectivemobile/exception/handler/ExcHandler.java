@@ -14,7 +14,7 @@ public class ExcHandler {
     @ExceptionHandler(UserAlreadyExistException.class)
     @ResponseStatus(HttpStatus.FOUND)
     public ExceptionResponse userAlreadyExistException(UserAlreadyExistException e) {
-        return new ExceptionResponse(HttpStatus.UNAUTHORIZED, e.getClass().getName(), e.getMessage());
+        return new ExceptionResponse(HttpStatus.FOUND, e.getClass().getName(), e.getMessage());
     }
 
     @ExceptionHandler(NotFoundException.class)
