@@ -17,7 +17,7 @@ import java.util.Collections;
 @Setter
 @Builder
 @Entity
-@Table(name = "users")
+@Table(name = "tasks")
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
