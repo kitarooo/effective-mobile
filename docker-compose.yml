@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: password
       PGDATA: /data/postgres
     volumes:
-      - ./postgres-user:/data/postgres
+      - ./postgres-mobile:/data/postgres
     ports:
       - "3333:5432"
 
