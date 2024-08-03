@@ -4,6 +4,7 @@ import com.backend.effectivemobile.entity.base_entity.BaseEntity;
 import com.backend.effectivemobile.entity.enums.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.security.core.GrantedAuthority;
@@ -24,6 +25,7 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class User extends BaseEntity implements UserDetails {
 
+    @Email
     String email;
     String username;
     String password;

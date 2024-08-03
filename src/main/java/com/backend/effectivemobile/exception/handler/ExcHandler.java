@@ -2,6 +2,7 @@ package com.backend.effectivemobile.exception.handler;
 
 import com.backend.effectivemobile.exception.IncorrectDataException;
 import com.backend.effectivemobile.exception.NotFoundException;
+import com.backend.effectivemobile.exception.TaskAlreadyExistException;
 import com.backend.effectivemobile.exception.UserAlreadyExistException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -27,5 +28,11 @@ public class ExcHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ExceptionResponse incorrectDataException(IncorrectDataException e) {
         return new ExceptionResponse(HttpStatus.BAD_REQUEST, e.getClass().getName(), e.getMessage());
+    }
+
+    @ExceptionHandler(TaskAlreadyExistException.class)
+    @ResponseStatus(HttpStatus.FOUND)
+    public ExceptionResponse taskAlreadyExistException(TaskAlreadyExistException e) {
+        return new ExceptionResponse(HttpStatus.FOUND, e.getClass().getName(), e.getMessage());
     }
 }

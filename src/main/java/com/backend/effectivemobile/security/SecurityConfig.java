@@ -30,11 +30,17 @@ public class SecurityConfig extends WebSecurityConfiguration {
             "/api/v1/auth/**"
     };
 
+    public String[] USER = {
+            "/api/v1/tasks/**"
+    };
+
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(USER).hasRole("USER")
                         .requestMatchers(PERMIT_ALL).permitAll().anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authProvider)
