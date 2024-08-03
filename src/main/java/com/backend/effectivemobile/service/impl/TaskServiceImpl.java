@@ -142,6 +142,7 @@ public class TaskServiceImpl implements TaskService {
         return TasksResponse.builder()
                 .id(task.getId())
                 .comments(tasksResponses)
+                .description(task.getDescription())
                 .title(task.getTitle())
                 .performerUsername(task.getPerformerUsername())
                 .priority(task.getPriority())
