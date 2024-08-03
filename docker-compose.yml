@@ -12,3 +12,17 @@ services:
       - ./postgres-user:/data/postgres
     ports:
       - "3333:5432"
+
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - effective-mobile
+    container_name: 'application'
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://effective-mobile:5432/mobile
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
