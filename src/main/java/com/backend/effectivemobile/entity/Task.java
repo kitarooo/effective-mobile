@@ -3,12 +3,11 @@ package com.backend.effectivemobile.entity;
 import com.backend.effectivemobile.entity.base_entity.BaseEntity;
 import com.backend.effectivemobile.entity.enums.Priority;
 import com.backend.effectivemobile.entity.enums.Status;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,5 +27,8 @@ public class Task extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     Priority priority;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.REFRESH, CascadeType.MERGE})
+    List<Comment> comments;
 
 }

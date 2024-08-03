@@ -1,6 +1,5 @@
 package com.backend.effectivemobile.dto.response;
 
-import com.backend.effectivemobile.entity.Comment;
 import com.backend.effectivemobile.entity.enums.Priority;
 import com.backend.effectivemobile.entity.enums.Status;
 import lombok.*;
@@ -13,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class TasksResponse {
+public class TaskCommentResponse {
     Long id;
     String title;
     String performerUsername;

@@ -9,11 +9,11 @@ import java.util.List;
 
 public interface TaskService {
 
-    List<TasksResponse> createTask(TaskRequest request);
-    List<TasksResponse> updateTask(Long id, TaskRequest request);
+    String createTask(TaskRequest request);
+    String updateTask(Long id, TaskRequest request);
     List<TasksResponse> getMyTasks();
-    List<TasksResponse> deleteTask(Long id);
-    List<TasksResponse> changeStatus(Long id, StatusRequest request);
+    String deleteTask(Long id);
+    String changeStatus(Long id, StatusRequest request);
     List<TasksResponse> getAllTasks();
     List<Task> getByPerformers(String performer);
     Task getById(Long id);

@@ -38,7 +38,7 @@ public class TaskController {
                             responseCode = "404", description = "Performer not found!!"
                     )
             })
-    public List<TasksResponse> createTask(@RequestBody TaskRequest taskRequest) {
+    public String createTask(@RequestBody TaskRequest taskRequest) {
         return taskService.createTask(taskRequest);
     }
 
@@ -58,10 +58,11 @@ public class TaskController {
                             responseCode = "404", description = "Performer not found!!"
                     )
             })
-    public List<TasksResponse> updateTask(@PathVariable Long id, @RequestBody TaskRequest taskRequest) {
+    public String updateTask(@PathVariable Long id, @RequestBody TaskRequest taskRequest) {
         return taskService.updateTask(id, taskRequest);
     }
 
+    @GetMapping("/my_tasks")
     public List<TasksResponse> getMyTasks() {
         return taskService.getMyTasks();
     }
@@ -78,7 +79,7 @@ public class TaskController {
                                     schema = @Schema(implementation = ExceptionResponse.class)),
                             responseCode = "404", description = "Task not found!")
             })
-    public List<TasksResponse> deleteTask(@PathVariable Long id) {
+    public String deleteTask(@PathVariable Long id) {
         return taskService.deleteTask(id);
     }
 
@@ -94,7 +95,7 @@ public class TaskController {
                                     schema = @Schema(implementation = ExceptionResponse.class)),
                             responseCode = "404", description = "Task not found!")
             })
-    public List<TasksResponse> updateTaskStatus(@PathVariable Long id, @RequestBody StatusRequest request) {
+    public String updateTaskStatus(@PathVariable Long id, @RequestBody StatusRequest request) {
         return taskService.changeStatus(id, request);
     }
 

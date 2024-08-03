@@ -29,6 +29,18 @@ public class JwtService {
         return claimsResolver.apply(claims);
     }
 
+    public Long extractUserId(String token) {
+        String newToken = removeBearerPrefix(token);
+        Claims claims = extractAllClaims(newToken);
+        return Long.parseLong(claims.get("userId").toString());
+    }
+    private String removeBearerPrefix(String token) {
+        if (token.startsWith("Bearer ")) {
+            return token.substring(7);
+        }
+        return token;
+    }
+
     public String generateToken(User user) {
         return generateToken(new HashMap<>(),user,user.getId());
     }
